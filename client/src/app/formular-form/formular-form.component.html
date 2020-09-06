@@ -1,0 +1,40 @@
+<div>
+  <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label>Email</label>
+        <input formControlName="email"  type="email" class="form-control" >
+    </div>
+  
+    <div class="form-group">
+        <label>Land</label>
+        <input formControlName="land" type="land" class="form-control" >
+    </div>
+  
+    <div class="form-group">
+        <label>Ort</label>
+        <input formControlName="ort" type="text" class="form-control" >
+    </div>
+  
+    <div class="form-group">
+        <label>Strase</label>
+        <input formControlName="strase" type="text" class="form-control" >
+    </div>
+  
+    <div class="form-group">
+        <label>PLZ</label>
+        <input formControlName="PLZ" type="number" class="form-control" >
+    </div>
+  
+    <div class="form-group">
+        <label>Datum</label>
+        <input formControlName="datum" type="date" class="form-control" >
+    </div>
+  
+  
+    <button type="submit">Submit</button>
+  </form>
+  
+  {{ registrationForm.value | json }}
+  
+  </div>
+  
