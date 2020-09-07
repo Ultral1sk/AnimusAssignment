@@ -1,8 +1,9 @@
 <h2>All List Information</h2>
-<app-formular-form></app-formular-form>
 
   <ul  *ngFor="let listinfo of list" >
-
+    <h3 >
+      <b>{{listinfo.id}}</b> 
+      </h3>
       <li >
       <b>Email</b>  : {{listinfo.email}}
       </li>
@@ -23,7 +24,8 @@
       <li>
         <b>Date</b>  : {{listinfo.datum}}
       </li>
-
+      <button>Edit</button>
+      <button>Delete</button>
       <hr />
 
 </ul>
