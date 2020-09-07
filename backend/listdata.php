@@ -7,7 +7,7 @@ require 'connect.php';
 $wohnunginfo = [];
 $sql = "SELECT * FROM wohnunginfo";
 
-  if($result = mysqli_query($connection,$sql)){
+  if($result = mysqli_query($con,$sql)){
 
     $cr = 0;
 
@@ -15,6 +15,7 @@ $sql = "SELECT * FROM wohnunginfo";
 
       
       $wohnunginfo[$cr]['id']     = $row['id'];
+      // $wohnunginfo[$cr]['admin']  = $row['admin'];
       $wohnunginfo[$cr]['email']  = $row['email'];
       $wohnunginfo[$cr]['land']   = $row['land'];
       $wohnunginfo[$cr]['ort']    = $row['ort'];
@@ -25,9 +26,9 @@ $sql = "SELECT * FROM wohnunginfo";
 
     }
 
-    print_r($wohnunginfo);
+    // print_r($wohnunginfo);
     // the incoming data should be parsed into json data
-    // echo json_encode($wohnunginfo);
+    echo json_encode($wohnunginfo);
   }
 
   else {
