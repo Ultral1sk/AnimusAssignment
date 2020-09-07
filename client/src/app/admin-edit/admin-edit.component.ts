@@ -24,4 +24,11 @@ export class AdminEditComponent implements OnInit {
     })
   }
 
+  deleteHandler(list: List):void {
+    this._listService.deleteList(list.id)
+      .subscribe( data => {
+        this.list = this.list.filter( delID => delID !== list )
+      })
+  }
+
 }
