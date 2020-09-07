@@ -9,14 +9,15 @@ import { List } from '../types';
 })
 export class ListService {
 
-  public get_url: string = 'http://localhost/animus/backend/listdata.php'
-  public delete_url: string = 'http://localhost/animus/backend/delete.php?id='
+  public get_url: string    = 'http://localhost/animus/backend/listdata.php';
+  public delete_url: string = 'http://localhost/animus/backend/deletelist.php?id=';
+  public post_url: string   = 'http://localhost/animus/backend/createlist.php';
   
   public listdata : List[];
 
   constructor( private http: HttpClient ) {}
 
-  getList(): Observable<any> {
+    getList(): Observable<any> {
     // The Observable returned by get() is of type Observable<string>
     // because a text response was specified.
     // There's no need to pass a <string> type parameter to get().
@@ -28,4 +29,12 @@ export class ListService {
       return this.http.delete(this.delete_url + id)
     }
 
+    createList(listdata: List): Observable<any> {
+    
+      // console.log(this.post_url, listdata)
+      
+        return this.http.post(this.post_url, listdata)
+    }
+
+    
 }
