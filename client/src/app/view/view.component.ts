@@ -27,4 +27,6 @@ export class ViewComponent implements OnInit {
 
   }
 
+  edit
+
 }
