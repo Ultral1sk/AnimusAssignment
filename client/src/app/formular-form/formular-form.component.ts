@@ -13,6 +13,9 @@ export class FormularFormComponent implements OnInit {
   
   registrationForm = this.fb.group({
     email   : ['lukamagic@gmail.com'],
+
+    // admin   : false,
+
     land    : [''],
     ort     : [''],
     strase  : [''],
