@@ -1,18 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { ListService } from '../service/list.service';
 import { List } from '../types'
+import { Router } from '@angular/router';
 
 
 @Component({
-  selector: 'app-admin-edit',
-  templateUrl: './admin-edit.component.html',
-  styleUrls: ['./admin-edit.component.scss']
+  selector: 'app-admin-delete',
+  templateUrl: './admin-delete.component.html',
+  styleUrls: ['./admin-delete.component.scss']
 })
-export class AdminEditComponent implements OnInit {
+export class AdminDeleteComponent implements OnInit {
 
   public list: List[];
+  public _id;
 
-  constructor(private _listService : ListService) { }
+
+  constructor(private _listService : ListService,   private router: Router) { }
 
   ngOnInit(): void {
     // we subscribe to the service so we get acces to the function 
@@ -29,6 +32,12 @@ export class AdminEditComponent implements OnInit {
       .subscribe( data => {
         this.list = this.list.filter( delID => delID !== list )
       })
+  }
+
+  editHandler(list: List):void {
+    this._id = list.id
+    console.log(list)
+    this.router.navigate(['admin_edit',this._id]);
   }
 
 }

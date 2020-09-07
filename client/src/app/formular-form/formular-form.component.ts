@@ -13,6 +13,7 @@ export class FormularFormComponent implements OnInit {
   private router: Router;
 
 
+
   
   registrationForm = this.fb.group({
     email   : ['lukamagic@gmail.com'],

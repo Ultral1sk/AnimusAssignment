@@ -9,9 +9,11 @@ import { List } from '../types';
 })
 export class ListService {
 
-  public get_url: string    = 'http://localhost/animus/backend/listdata.php';
-  public delete_url: string = 'http://localhost/animus/backend/deletelist.php?id=';
-  public post_url: string   = 'http://localhost/animus/backend/createlist.php';
+  public get_url: string           = 'http://localhost/animus/backend/listdata.php';
+  public get_url_by_id : string    = 'http://localhost/animus/backend/getlistById.php?id=';
+  public delete_url: string        = 'http://localhost/animus/backend/deletelist.php?id=';
+  public post_url: string          = 'http://localhost/animus/backend/createlist.php';
+  public edit_url: string          = 'http://localhost/animus/backend/editlist.php';
   
   public listdata : List[];
 
@@ -33,8 +35,18 @@ export class ListService {
     
       // console.log(this.post_url, listdata)
       
-        return this.http.post(this.post_url, listdata)
+        return this.http.post<List>(this.post_url, listdata)
     }
 
+    editList(listdata: List): Observable<any> {
     
+      
+        return this.http.put<List>(this.post_url, listdata)
+    }
+    
+
+    getListdataByid(id: number): Observable<any>{
+      return this.http.get<List>(this.get_url_by_id + id)
+
+    }
 }
