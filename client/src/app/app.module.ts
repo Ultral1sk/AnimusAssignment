@@ -9,16 +9,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormularFormComponent } from './formular-form/formular-form.component';
 import { ViewComponent } from './view/view.component';
+import { AdminEditComponent } from './admin-edit/admin-edit.component';
 
 export const routes: Routes = [
   { path : '', component: ViewComponent, pathMatch: 'full'},  
-  { path : 'view',  component: ViewComponent}  
+  { path : 'view',  component: ViewComponent},  
+  { path : 'admin_edit',  component: AdminEditComponent}  
 ]
 @NgModule({
   declarations: [
     AppComponent,
     FormularFormComponent,
-    ViewComponent
+    ViewComponent,
+    AdminEditComponent
   ],
   imports: [
     BrowserModule,
