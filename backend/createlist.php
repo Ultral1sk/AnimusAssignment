@@ -8,33 +8,26 @@ $postData = file_get_contents('php://input');
 if(isset($postData) && !empty($postData))
 {
 
-  $request = json_decode($postData);
+  $request = json_encode($postData);
 
-  $email  = mysqli_real_escape_string($con, $request->email);
-  $land   = mysqli_real_escape_string($con, trim($request->land));
-  $ort    = mysqli_real_escape_string($con, trim($request->ort));
-  $strase = mysqli_real_escape_string($con, trim($request->strase));
-  $PLZ =    mysqli_real_escape_string($con, $request->PLZ);
-  $datum  = mysqli_real_escape_string($con, $request->datum);
 
+  $email = $con->real_escape_string($_POST['email']);
+  $land = $con->real_escape_string($_POST['land']);
+  $ort = $con->real_escape_string($_POST['ort']);
+  $strase = $con->real_escape_string($_POST['strase']);
+  $PLZ = $con->real_escape_string($_POST['PLZ']);
+  $datum = $con->real_escape_string($_POST['datum']);
 
 
 //Store.
-$sql = "INSERT INTO `wohnunginfo`(
-    `email`,
-    `land`,
-    `ort`,
-    `strase`,
-    `PLZ`,
-    `datum`
-
-) VALUES ('${$email}', 
-  '${$land}', 
-  '${$ort}', 
-  '${$strase}', 
-  '${$PLZ}', 
-  '${$datum}')
-  ";
+$sql = "INSERT INTO `wohnunginfo` (
+    email,
+    land,
+    ort,
+    strase,
+    PLZ,
+    datum
+) VALUES ('$email', '$land', '$ort', '$strase', '$PLZ', '$datum')";
 
     if(mysqli_query($con,$sql)) {
        http_response_code(201);

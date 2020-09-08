@@ -1,7 +1,7 @@
 import { ListService } from './../service/list.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormArray } from '@angular/forms';
 @Component({
   selector: 'app-formular-form',
   templateUrl: './formular-form.component.html',
@@ -27,7 +27,6 @@ export class FormularFormComponent implements OnInit {
   })  
 
   submitHandler(){
-    console.log(this.registrationForm.value)
    this._listService.createList(this.registrationForm.value)
         .subscribe( data => {
           console.log(data)
