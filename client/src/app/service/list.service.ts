@@ -14,6 +14,7 @@ export class ListService {
   public delete_url: string        = 'http://localhost/animus/backend/deletelist.php?id=';
   public post_url: string          = 'http://localhost/animus/backend/createlist.php';
   public edit_url: string          = 'http://localhost/animus/backend/editlist.php';
+  public update_list_by_id_url: string          = 'http://localhost/animus/backend/updatelist.php?id=';
   
   public listdata : List[];
 
@@ -35,12 +36,13 @@ export class ListService {
     
       // console.log(this.post_url, listdata)
       
+        console.log(`data comming from createlist`,listdata)
         return this.http.post<List>(this.post_url, listdata)
     }
 
     editList(listdata: List): Observable<any> {
     
-      
+
         return this.http.put<List>(this.post_url, listdata)
     }
     
@@ -48,5 +50,9 @@ export class ListService {
     getListdataByid(id: number): Observable<any>{
       return this.http.get<List>(this.get_url_by_id + id)
 
+    }
+
+    updateList(list: List, id: number): Observable<any>{
+      return this.http.put(this.update_list_by_id_url + id, list)
     }
 }

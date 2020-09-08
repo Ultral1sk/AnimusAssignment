@@ -36,7 +36,16 @@ export class AdminEditComponent implements OnInit {
 
   
   saveHandler() {
-    console.log(this.registrationForm.value)
+    const routeParams = this.routes.snapshot.params.id
+
+    this._listService.updateList(this.registrationForm.value, routeParams)
+        .subscribe((data) => {
+          console.log(data)
+          // this.router.navigate(['view']);
+        }),
+        error => {
+          alert(error);
+        }
    
   }
 
