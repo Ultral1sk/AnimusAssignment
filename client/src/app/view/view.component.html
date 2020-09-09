@@ -1,29 +1,38 @@
-<h2>All List Information</h2>
-<app-formular-form></app-formular-form>
+<!-- As a link -->
+<nav class="navbar navbar-light bg-danger">
+  <a class="navbar-brand text-white" href="#">Navbar</a>
+</nav>
 
-  <ul  *ngFor="let listinfo of list" >
 
-      <li >
-      <b>Email</b>  : {{listinfo.email}}
-      </li>
-      <li>
 
-      <b>Country</b>  :  {{listinfo.land}}
-      </li>   
-      <li>
-    
-        <b>City</b>  :  {{listinfo.ort}}
-      </li>  
-       <li>
-        <b>Address</b>  : {{listinfo.strase}}
-      </li>
-      <li>
-        <b>Postal Code</b> :  {{listinfo.PLZ}}
-      </li>
-      <li>
-        <b>Date</b>  : {{listinfo.datum}}
-      </li>
 
-      <hr />
+<div class="d-flex justify-content-center">
+  
+  
+  <app-formular-form></app-formular-form>
+  
+  <div class="col-7 mt-5">
+    <h1 class="text-center">Bereit, Ihre perfekte Wohnung zu finden? Füllen Sie bitte das Formular aus. </h1>
 
-</ul>
+
+<table >
+  <tr>
+    <th>Email</th>
+    <th>Land</th>
+    <th>Ort</th>
+    <th>Straße</th>
+    <th>PLZ</th>
+    <th>Datum</th>
+  </tr>
+  <tr *ngFor="let listinfo of list" style="margin: 3rem 0rem">
+    <td>{{listinfo.email}}</td>
+    <td>{{listinfo.land}}</td>
+    <td>{{listinfo.ort}}</td>
+    <td>{{listinfo.strase}}</td>
+    <td>{{listinfo.PLZ}}</td>
+    <td>{{listinfo.datum}}</td>
+
+
+</table>
+</div>
+</div>

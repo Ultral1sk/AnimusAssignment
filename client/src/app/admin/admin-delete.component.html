@@ -1,31 +1,32 @@
-<h2>All List Information</h2>
 
-  <ul  *ngFor="let listinfo of list" >
-    <h3 >
-      <b>{{listinfo.id}}</b> 
-      </h3>
-      <li >
-      <b>Email</b>  : {{listinfo.email}}
-      </li>
-      <li>
+<div class="container  mt-5 text-left">
+  <div >
+  <h1 class="text-center">Hello <span class="text-danger">ADMIN</span> </h1>
+  <div *ngIf="deleted" class="alert alert-danger text-center" role="alert">
+    list  DELETED!
+  </div>
+    <table >
+      <tr>
+        <th>Email</th>
+        <th>Land</th>
+        <th>Ort</th>
+        <th>Straße</th>
+        <th>PLZ</th>
+        <th>Datum</th>
+      </tr>
+      <tr *ngFor="let listinfo of list" style="margin: 3rem 0rem">
+        <td>{{listinfo.email}}</td>
+        <td>{{listinfo.land}}</td>
+        <td>{{listinfo.ort}}</td>
+        <td>{{listinfo.strase}}</td>
+        <td>{{listinfo.PLZ}}</td>
+        <td>{{listinfo.datum}}</td>
+        <button class="ml-5 mt-1 mb-1 btn btn-warning border border-black" (click)="editHandler(listinfo)">Edit</button>
+        <button class="ml-5 mt-1 mb-1 btn btn-danger border border-black" (click)="deleteHandler(listinfo)">Delete</button>
+      </tr>
+    </table>
 
-      <b>Country</b>  :  {{listinfo.land}}
-      </li>   
-      <li>
-    
-        <b>City</b>  :  {{listinfo.ort}}
-      </li>  
-       <li>
-        <b>Address</b>  : {{listinfo.strase}}
-      </li>
-      <li>
-        <b>Postal Code</b> :  {{listinfo.PLZ}}
-      </li>
-      <li>
-        <b>Date</b>  : {{listinfo.datum}}
-      </li>
-      <button (click)="editHandler(listinfo)">Edit</button>
-      <button (click)="deleteHandler(listinfo)">Delete</button>
-      <hr />
+  </div>
+</div>
+  
 
-</ul>

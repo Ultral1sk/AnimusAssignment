@@ -1,44 +1,58 @@
-<div>
-    <a [routerLink]="['/']" >
-        HOME
-      </a>
-    <h1>Edit Form Data</h1>
+<div class="container mt-5">
+    <div class="text-center">
+        <h1 >Edit Form Data</h1>
+        <a [routerLink]="['/']" class=" w-100 text-center p-3 bg-secondary text-white mt-5">
+            HOME
+          </a>
+    </div>
+   
+  
+    <h1 class="mt-5">Live update feed :
+
+        <h2>
+            {{ registrationForm.value | json }}
+
+        </h2>
+    
+      </h1>
+
   <form [formGroup]="registrationForm"  (ngSubmit)="saveHandler()">
+
+
     <div class="form-group">
-        <label>Email</label>
-        <input formControlName="email"  type="email" class="form-control" >
+        <label for="">Email</label>
+        <input formControlName="email" name="email" placeholder="Email" type="email" class="form-control" >
     </div>
   
     <div class="form-group">
-        <label>Land</label>
-        <input formControlName="land" type="land" class="form-control" >
+        <label for="land">Land</label>
+        <input formControlName="land" name="land" placeholder="Land" type="text" class="form-control" >
     </div>
   
     <div class="form-group">
-        <label>Ort</label>
-        <input formControlName="ort" type="text" class="form-control" >
+        <label for="ort">Ort</label>
+        <input formControlName="ort" name="ort" placeholder="Ort" type="text" class="form-control" >
     </div>
   
     <div class="form-group">
-        <label>Strase</label>
-        <input formControlName="strase" type="text" class="form-control" >
+        <label for="strase">Strase</label>
+        <input formControlName="strase" name="strase" placeholder="Strase" type="text" class="form-control" >
     </div>
   
     <div class="form-group">
-        <label>PLZ</label>
-        <input formControlName="PLZ" type="number" class="form-control" >
+        <label for="PLZ">PLZ</label>
+        <input formControlName="PLZ" name="PLZ" placeholder="PLZ" type="number" class="form-control" >
     </div>
   
     <div class="form-group">
-        <label>Datum</label>
-        <input formControlName="datum" type="date" class="form-control" >
+        <label for="">Datum</label>
+        <input formControlName="datum" name="datum" type="date"  class="form-control" >
     </div>
   
-    <button type="submit" >Save</button>
-    <button  type="button" (click)="goBack()">Return</button>
+    <button type="submit" class="btn btn-success" >Save</button>
+    <button  type="button" class="btn btn-secondary" (click)="goBack()">Return</button>
   </form>
-  
-  {{ registrationForm.value | json }}
+
   
   </div>
   
